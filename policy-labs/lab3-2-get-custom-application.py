@@ -21,7 +21,7 @@ def get_custom_app(ap):
     # Set "isCustom = True" so the API will return only custom application(s)
     params={"isCustom":True}
     try:
-        resp= ap.get(api="application",params=params) # The response from "GET /application" request
+        resp= ap.get(api="PUT APPLICATION API CALL HERE",params=params) # The response from "GET /application" request
         status = resp.status_code
         response_json = resp.json() # Get the json-encoded content from response
         app = response_json["response"]
@@ -41,10 +41,11 @@ def get_custom_app(ap):
     app_list = []
     # Extracting attributes
     for item in app:
-        app_list.append([item["name"],item["instanceUuid"]])
+        app_list.append([item["PUT NAME ATTRIBUTE HERE"],item["PUT INSTANCE ID HERE"]])
     # Return a list of custom application with name and id
     return app_list
 
+    
 if __name__ == "__main__":
     myapicem = apicem() # Initialize apicem instance
     a_list = get_custom_app(myapicem)
@@ -53,4 +54,3 @@ if __name__ == "__main__":
         print (tabulate(a_list, headers=['custom application','application id'],tablefmt="rst"),'\n')
     else:
         print ("*************  There is no custom applications ! *************\n")
-

@@ -35,7 +35,7 @@ def check_status(arg,arg1):
             print("\n------ End of path trace ! ------")
             sys.exit()
         try:
-            r = get(api="flow-analysis/"+flowAnalysisId)
+            r = get(api="PUT FLOW ANALYSIS ID API CALL HERE")
             response_json = r.json()
             # print ("Response from GET /flow-analysis/"+flowAnalysisId,json.dumps(response_json,indent=4))
             status = response_json["response"]["request"]["status"]
@@ -60,13 +60,13 @@ def get_host_and_device():
     # Create a list of host and network device
     # Get host
     try:
-        resp= get(api="host")
+        resp= get(api="PUT HOST API CALL HERE")
         response_json = resp.json() # Get the json-encoded content from response
         i=0
         if response_json["response"] !=[]:
             for item in response_json["response"]:
                 i+=1
-                ip_list.append([i,"host",item["hostIp"]])
+                ip_list.append([i,"host",item["PUT HOST IP ADDRESS ATTRIBUTE HERE"]])
             idx=i # This idx(sequential number) will be used to tag host and network device
                   # So far this number = the number of hosts
     except:
@@ -74,13 +74,13 @@ def get_host_and_device():
 
     # Now get network device and append it to the list
     try:
-        resp= get(api="network-device")
+        resp= get(api="PUT NETWORK DEVICE API CALL HERE")
         print ("Status: of GET /network-device ",resp.status_code)  # This is the http request status
         response_json = resp.json() # Get the json-encoded content from response
         if response_json["response"] !=[]:
             for item in response_json["response"]:
                 idx+=1
-                ip_list.append([idx,"network device",item["managementIpAddress"]])
+                ip_list.append([idx,"network device",item["PUT MANAGEMENT IP ATTRIBUTE HERE"]])
     except:
         print ("Something wrong ! Cannot get network-device IP list !")
     # Now "ip_list" should have hosts and network-devices
@@ -139,7 +139,7 @@ if __name__ == "__main__": # execute only if run as a script
     response_json = r.json()
     print ("Response from POST /flow-analysis:\n",json.dumps(response_json,indent=4))
     try:
-       flowAnalysisId = response_json["response"]["flowAnalysisId"]
+       flowAnalysisId = response_json["response"]["PUT FLOW ANALYSIS IP ADDRESS HERE"]
     except:
         print ("\n For some reason cannot get flowAnalysisId")
         sys.exit()
@@ -149,4 +149,3 @@ if __name__ == "__main__": # execute only if run as a script
     ###########################################################
     thread = threading.Thread(target=check_status, args=('',flowAnalysisId,)) # Passing <status = ''>
     thread.start()
-

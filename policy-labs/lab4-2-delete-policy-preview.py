@@ -19,7 +19,7 @@ def select_policy_preview(ap):
     """
     preview = [] # policy preview list
     try:
-        resp= ap.get(api="policy/preview") # "GET /policy/preview" request
+        resp= ap.get(api="PUT POLICY PREVIEW API HERE") # "GET /policy/preview" request
         status = resp.status_code
         response_json = resp.json() # Get the json-encoded content from response
         preview = response_json["response"]
@@ -78,8 +78,7 @@ if __name__ == "__main__":
     print ("Deleting",preview_info[0],"....") # preview_info[0] = policy_name
     try:
         # delete policy by policy preview id
-        myapicem.delete(api="policy/preview/"+preview_info[1],printOut=True) # preview_info[1] = policy preview id
+        myapicem.delete(api="PUT POLICY PREVIEW API HERE",printOut=True) # preview_info[1] = policy preview id
     except:
         print ("Something wrong with deleting policy")
         sys.exit()
-

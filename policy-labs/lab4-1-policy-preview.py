@@ -33,7 +33,7 @@ def enter_policy_name(ap):
         else: # Check if name is used
             check_name = False
             try:
-                resp= ap.get(api="policy") # The response (result) from "GET /policy/" request
+                resp= ap.get(api="PUT POLICY API CALL HERE") # The response (result) from "GET /policy/" request
                 response_json = resp.json() # Get the json-encoded content from response
                 policy = response_json["response"]
             except:
@@ -98,7 +98,7 @@ def get_tag_association(ap):
     list : tag association list
     """
     try:
-        resp = ap.get(api="policy/tag/association")
+        resp = ap.get(api="PUT POLICY TAG ASSOCIATION API HERE")
         response_json = resp.json()
         tag = response_json["response"] # Policy tags
     except:
@@ -185,7 +185,7 @@ def select_app(ap):
     print ("** Retrieving applications may take a while, please wait......... **\n")
     app = []
     try:
-        resp= ap.get(api="application") # The response (result) from "GET /application" request
+        resp= ap.get(api="PUT APPLICATION API HERE") # The response (result) from "GET /application" request
         status = resp.status_code
         response_json = resp.json() # Get the json-encoded content from response
         app = response_json["response"]
@@ -215,7 +215,7 @@ def select_app(ap):
     app = []
     params={"isCustom":True}
     try:
-        resp= ap.get(api="application",params=params) # The response (result) from "GET /application" request
+        resp= ap.get(api="PUT APPLICATION API HERE",params=params) # The response (result) from "GET /application" request
         status = resp.status_code
         response_json = resp.json() # Get the json-encoded content from response
         app = response_json["response"]
@@ -275,7 +275,7 @@ def get_file_with_id(ap,id):
 
 
     try:
-        resp=ap.get(api="file/"+id) # The response (result) from "GET /file/{id}" request
+        resp=ap.get(api="PUT FILE API HERE") # The response (result) from "GET /file/{id}" request
         status = resp.status_code
         # print (resp.text)
     except:
@@ -326,7 +326,7 @@ if __name__ == "__main__":
     ########## Creating policy preview #############
     params={"policyScope" : tag_name}
     try:
-        myapicem.post(api="policy/preview", params=params,data=preview_json,printOut=True)
+        myapicem.post(api="PUT POLICY PREVIEW API HERE", params=params,data=preview_json,printOut=True)
     except:
         print ("Something wrong with POST policy/preview")
         sys.exit()
@@ -341,7 +341,7 @@ if __name__ == "__main__":
         print ("Generating policy preview, please wait.....")
         try:
             # Preview for this policyScope
-            resp=myapicem.get(api="policy/preview",params=params,printOut = True)
+            resp=myapicem.get(api="PUT POLICY PREVIEW API HERE",params=params,printOut = True)
             response_json = resp.json()
             preview = response_json["response"] # Policy tags
         except:

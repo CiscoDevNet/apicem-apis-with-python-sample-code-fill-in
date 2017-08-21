@@ -298,4 +298,3 @@ if __name__ == "__main__":
     except:
         print ("Something wrong with POST policy")
         sys.exit()
-

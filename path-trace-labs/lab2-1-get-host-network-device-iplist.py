@@ -20,14 +20,14 @@ def get_host_and_device():
     idx=0
     # Get host
     try:
-        resp= get(api="host")
+        resp= get(api="PUT API TO GET LIST OF HOSTS HERE")
         print ("Status of GET /host: ",resp.status_code)  # This is the http request status
         response_json = resp.json() # Get the json-encoded content from response
         if response_json["response"] !=[]:
             i=0
             for item in response_json["response"]:
                 i+=1
-                ip_list.append([i,"host",item["hostIp"]])
+                ip_list.append([i,"host",item["PUT THE IP ADDRESS ATTRIBUTE FOR HOST HERE"]])
             idx=i # idx(sequential number) will be used to tag host and network device
     except:
         print ("Something wrong, cannot get host IP list")
@@ -35,13 +35,13 @@ def get_host_and_device():
 
     # Now get network device and append it to the list
     try:
-        resp= get(api="network-device")
+        resp= get(api="PUT API TO GET LIST OF NETWORK DEVICES HERE")
         print ("Status: of GET /network-device ",resp.status_code)  # This is the http request status
         response_json = resp.json() # Get the json-encoded content from response
         if response_json["response"] !=[]:
             for item in response_json["response"]:
                 idx+=1
-                ip_list.append([idx,"network device",item["managementIpAddress"]])
+                ip_list.append([idx,"network device",item["PUT MANAGEMENT IP ADDRESS ATTRIBUTE HERE"]])
     except:
         print ("Something wrong ! Cannot get network-device IP list !")
     # Now "ip_list" should have hosts and network-devices
@@ -57,5 +57,3 @@ if __name__ == "__main__": # execute only if run as a script
     # The tabulate module is imported in apicem.py
     # For the simplicity we just copy the source code in working directory, without installing it
     print (tabulate(get_host_and_device(),headers=['number','type','ip'],tablefmt="rst"))
-
-

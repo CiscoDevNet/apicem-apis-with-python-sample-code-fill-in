@@ -19,7 +19,7 @@ def create_policy_tag(ap,tag_json):
     None
     """
     try:
-        resp = ap.post(api="policy/tag", data=tag_json,printOut=True)
+        resp = ap.post(api="PUT API TO CREATE POLICY TAG HERE", data=tag_json,printOut=True)
     except:
         print ("Something wrong with POST /policy/tag !")
 
@@ -46,6 +46,3 @@ if __name__ == "__main__": # Execute only if run as a script
     }
 
     create_policy_tag(myapicem,tag_json) # Create tag function
-
-
-

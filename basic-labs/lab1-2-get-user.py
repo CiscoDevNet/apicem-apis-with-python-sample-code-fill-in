@@ -10,7 +10,7 @@ from apicem import *
 # The get() function is defined in apicem.py
 # Get token function is called in get() function
 try:
-    resp= get(api="user")
+    resp= get(api="PUT API CALL TO GET USER HERE")
     response_json = resp.json() # Get the json-encoded content from response
     print (json.dumps(response_json,indent=4),'\n') # Convert "response_json" object to a JSON formatted string and print it out
 except:

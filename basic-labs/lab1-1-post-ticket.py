@@ -9,10 +9,10 @@ import json       # Import JSON encoder and decode module
 requests.packages.urllib3.disable_warnings() # Disable warnings
 
 # APIC-EM IP, modify these parameters if you are using your own APIC-EM
-apicem_ip = "devnetapi.cisco.com/sandbox/apic_em"
-username = "devnetuser"
-password = "Cisco123!"
-version = "v1"
+apicem_ip = "PUT APIC IP/URL HERE"
+username = "PUT USERNAME HERE"
+password = "PUT PASSWORD HERE"
+version = "PUT VERSION HERE"
 
 # JSONhttps://sandboxapic.cisco.com/ input
 r_json = {
@@ -37,5 +37,3 @@ print ("\nRaw response from POST ticket request:\n",resp.text)
 
 # Pretty print the raw response
 print ("\nPretty print response:\n",json.dumps(response_json,indent=4))
-
-

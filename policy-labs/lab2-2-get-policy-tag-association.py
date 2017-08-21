@@ -17,7 +17,7 @@ def get_tag_association(ap):
     None
     """
     try:
-        resp = ap.get(api="policy/tag/association")
+        resp = ap.get(api="PUT POLICY TAG ASSOCIATION API HERE")
         response_json = resp.json()
         tag = response_json["response"] # Policy tags
     except:
@@ -37,7 +37,7 @@ def get_tag_association(ap):
                 if item["networkDevices"] != []: # If there is at least one network device associated
                     for item1 in item["networkDevices"]: # There could be more than one network devices associated with the same tag
                         # Adding number in the beginning of each row
-                        tag_list.append([i,item["policyTag"],item1["deviceName"],item1["deviceIp"],item1["deviceId"]])
+                        tag_list.append([i,item1["PUT POLICTY TAG ATTRIBUTE HERE"],item1["PUT DEVICE NAME ATTRIBUTE HERE"],item1["PUT DEVICE IP ATTRIBUTE HERE"],item1["PUT DEVICE ID ATTRIBUTE HERE"]])
                 else:
                     tag_list.append([i,item["policyTag"],"","",""])
         if tag_list == []:

@@ -24,7 +24,7 @@ def post_app(ap,app_json):
     # If the DB initialize, these ids will change. So get id dynamically.
 
     try:
-        resp= ap.get(api="category") # The response (result) from "GET 'category" request
+        resp= ap.get(api="PUT CATEGORY API CALL HERE") # The response (result) from "GET 'category" request
         response_json = resp.json() # Get the json-encoded content from response
         categories = response_json["response"] # category
     except:
@@ -56,7 +56,7 @@ if __name__ == "__main__":
     app_json = {
         "trafficClass":"BULK_DATA",
         "helpString":"",
-        "name":"",
+        "name":"PUT APP NAME HERE",
         "appProtocol": "tcp/udp",
         "udpPorts": "8888",
         "tcpPorts": "8888",
@@ -89,4 +89,3 @@ if __name__ == "__main__":
     # Everything is OK so far, initialize apicem instance and create application
     myapicem = apicem()
     post_app(myapicem,app_json)
-

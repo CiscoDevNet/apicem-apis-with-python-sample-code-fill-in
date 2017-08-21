@@ -8,7 +8,7 @@ from apicem import * # APIC-EM IP is assigned in apicem_config.py
 # Print out device list for user to select
 device = []
 try:
-    resp= get(api="network-device") # The response (result) from "GET /network-device" request
+    resp= get(api="PUT NETWORK DEVICE API HERE") # The response (result) from "GET /network-device" request
     status = resp.status_code
     response_json = resp.json() # Get the json-encoded content from response
     device = response_json["response"] # Network-device
@@ -32,7 +32,7 @@ device_list = []
 i=0
 for item in device:
     i+=1
-    device_list.append([i,item["hostname"],item["managementIpAddress"],item["type"],item["instanceUuid"]])
+    device_list.append([i,item["PUT HOSTNAME ATTRIBUTE HERE"],item["PUT MANAGEMENT IP ATTRIBUTE HERE"],item["PUT TYPE ATTRIBUTE HERE"],item["PUT INSTANCE ID ATTRIBUTE HERE"]])
 # Show all network devices under this APIC-EM's management
 # Pretty print tabular data, needs 'tabulate' module
 print (tabulate(device_list, headers=['number','hostname','ip','type'],tablefmt="rst"),'\n')
@@ -62,7 +62,7 @@ while True:
 
 # Get IOS configuration API
 try:
-    resp = get(api="network-device/"+id+"/config")
+    resp = get(api="PUT NETWORK DEVICE CONFIG API CALL HERE")
     status = resp.status_code
 except:
     print ("Something wrong with GET network-device/"+id+"/config !\n")

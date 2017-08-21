@@ -19,7 +19,7 @@ def get_policy_tag(ap):
     """
 
     try:
-        resp = ap.get(api="policy/tag",printOut=True)
+        resp = ap.get(api="PUT POLICY TAG API CALL HERE",printOut=True)
     except:
         print ("Something wrong with GET /policy/tag !")
 

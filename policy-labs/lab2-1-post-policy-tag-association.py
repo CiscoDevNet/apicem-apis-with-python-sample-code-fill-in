@@ -21,7 +21,7 @@ def select_device_id(ap):
     device=[]
     # Create a list of network devices
     try:
-        resp = ap.get(api="network-device")
+        resp = ap.get(api="PUT API CALL FOR NETWORK DEVICES HERE")
         status = resp.status_code
         response_json = resp.json() # Get the json-encoded content from response
         device = response_json["response"] # The network-device
@@ -43,7 +43,7 @@ def select_device_id(ap):
     idx=0
     for item in device:
         idx+=1
-        device_list.append([idx,item["hostname"],item["managementIpAddress"],item["type"],item["instanceUuid"]])
+        device_list.append([idx,item["PUT HOSTNAME ATTRIBUTE HERE"],item["PUT MANAGEMENT IP ADDRESS ATTRIBUTE HERE"],item["PUT TYPE ATTRIBUTE HERE"],item["PUT INSTANCE ID ATTRIBUTE HERE"]])
     if device_list == []:
         print ("There is no network-device can be used to associate with policy tag !")
         sys.exit()
@@ -87,7 +87,7 @@ def select_policy_tag(ap):
     """
 
     try:
-        resp = ap.get(api="policy/tag") # get policy tag
+        resp = ap.get(api="PUT API FOR POLICTY TAG HERE") # get policy tag
         response_json = resp.json()
         tag = response_json["response"] # policy tags
     except:
@@ -99,7 +99,7 @@ def select_policy_tag(ap):
     tag_list = []
     for item in tag:
         i+=1
-        tag_list.append([i,item["policyTag"]])
+        tag_list.append([i,item["PUT POLICY TAG ATTRIBUTE HERE"]])
     print (tabulate(tag_list, headers=['#','Policy Tag'],tablefmt="rst"),'\n')
     pTag=""
     # Ask user's input
@@ -111,7 +111,7 @@ def select_policy_tag(ap):
             sys.exit()
         if tag_num.isdigit(): # make sure digit is entered
             if int(tag_num) in range(1,len(tag)+1): # make sure digit entered is in range
-                pTag=tag[int(tag_num)-1]["policyTag"]
+                pTag=tag[int(tag_num)-1]["PUT POLICY TAG ATTRIBUTE HERE"]
                 return pTag
             else:
                 print ("Oops! number is out of range, please try again or enter 'exit'")
@@ -150,5 +150,3 @@ if __name__ == "__main__":
     net_id = select_device_id(myapicem) # getting network device id
     tag = select_policy_tag(myapicem) # getting policy tag
     post_association(myapicem,tag,net_id) # create association
-
-

@@ -11,7 +11,7 @@ from apicem import * # APIC-EM IP is assigned in apicem_config.py
 
 device = []
 try:
-    resp= get(api="network-device") # The response (result) from "GET /network-device" request
+    resp= get(api="PUT NETWORK DEVICE API CALL HERE") # The response (result) from "GET /network-device" request
     status = resp.status_code
     response_json = resp.json() # Get the json-encoded content from response
     device = response_json["response"] # Network-device
@@ -49,7 +49,7 @@ device_list = []
 i=0
 for item in device:
     i+=1
-    device_list.append([i,item["hostname"],item["managementIpAddress"],item["type"],item["instanceUuid"]])
+    device_list.append([i,item["PUT HOSTNAME ATTRIBUTE HERE"],item["PUT MANAGEMENT IP ADDRESS ATTRIBUTE HERE"],item["PUT TYPE ATTRIBUTE HERE"],item["PUT INSTANCE ID ATTRIBUTE HERE"]])
     #Not showing id to user, it's just a hex string
 
 # Show all network devices under this APIC-EM's management
@@ -85,10 +85,10 @@ while True:
 # Show interface or IOS config
 if user_input == '1':
     # Get interface list
-    selected_api  =  "interface/network-device/"+id
+    selected_api  =  "PUT NETWORK DEVICE CONFIG INTERFACE API HERE"
 else:
     # Get IOS configuration
-    selected_api =  "network-device/"+id+"/config"
+    selected_api =  "PUT NETWORK DEVICE CONFIG API HERE"
 # GET api request
 try:
     resp = get(api=selected_api)

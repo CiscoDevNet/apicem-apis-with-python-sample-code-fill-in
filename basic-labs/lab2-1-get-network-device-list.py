@@ -9,7 +9,7 @@ from  apicem import *
 device = []
 try:
     # The request and response of "GET /network-device" API
-    resp = get(api="network-device")
+    resp = get(api="PUT API CALL FOR NETWORK DEVICE HERE")
     status = resp.status_code
     # Get the json-encoded content from response
     response_json = resp.json()
@@ -36,7 +36,7 @@ device_list = []
 i=0
 for item in device:
     i+=1
-    device_list.append([i,item["hostname"],item["managementIpAddress"],item["type"],item["instanceUuid"]])
+    device_list.append([i,item["PUT HOSTNAME ATTRIBUTE HERE"],item["PUT MANAGEMENT IP ATTRIBUTE HERE"],item["PUT TYPE ATTRIBUTE HERE"],item["PUT INSTANCE ID ATTRIBUTE HERE"]])
 
 # We use tabulate module here to print a nice table format. You should use "pip" tool to install in your local machine
 # For the simplicity we just copy the source code in working directory without  installing it.
